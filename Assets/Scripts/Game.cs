@@ -22,6 +22,7 @@ public class Game : MonoBehaviour
     public int coins;
     public bool hasOpenedDaily;
     public GameObject dailyGift;
+    public GameObject dailyInfo;
     private bool loadedInPachi = false;
 
     //Shop Stuff
@@ -39,6 +40,7 @@ public class Game : MonoBehaviour
     Animator petExpression;
     Animator shopTransitions;
     Animator foodTransitions;
+    Animator dailyTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,7 @@ public class Game : MonoBehaviour
         petExpression = pet.GetComponent<Animator>();
         shopTransitions = shop.GetComponent<Animator>();
         foodTransitions = foodInv.GetComponent<Animator>();
+        dailyTransition = dailyInfo.GetComponent<Animator>();
         LoadCoins();
         LoadPet();
         LoadFood();
@@ -470,7 +473,9 @@ public class Game : MonoBehaviour
     public void OpenDaily()
     {
         AudioSourceController.Instance.PlaySFX("Coin");
-        coins += 50;
+        coins += 100;
+        dailyInfo.SetActive(true);
+        dailyTransition.SetBool("DailyAlert", true);
         PlayerPrefs.SetString("OpenedDailyTime", DateTime.Now.ToString());
         PlayerPrefs.Save();
         dailyGift.SetActive(false);
