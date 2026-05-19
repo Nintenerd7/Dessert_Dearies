@@ -13,7 +13,6 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canBounce) //if you press on the circle 
         {
             BounceButton(); // call bounce button logic
-            canBounce = false; // canBounce is set to false
         } //end if
     }
     
