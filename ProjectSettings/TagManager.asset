@@ -8,6 +8,9 @@ TagManager:
   - Orange
   - Red
   - GameManager
+  - Ball
+  - BounceArea
+  - Death Zone
   layers:
   - Default
   - TransparentFX
