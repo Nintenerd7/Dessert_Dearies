@@ -9,11 +9,11 @@ public class Match2_Manager : MonoBehaviour
     public Transform grid; //detect the grid layout transform 
     public Sprite[] icons; //gets icon list 
     private List<Sprite> Pairs; //creates list of pairs 
-    int count;
-    public GameObject text;
-    bool gotPoint = false;
-    Card_Manager A; 
-    Card_Manager B;
+    int count; //keeps score of when the game will end
+    public GameObject text; //sets the game over text to true when the game ends 
+    bool gotPoint = false; //checks if the player can score in the update function. 
+    Card_Manager A; //Stores the first card 
+    Card_Manager B; //stores the second card 
 
 
     public void selectCard(Card_Manager card)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1162567491528186271}
   - component: {fileID: 1473342265580416770}
   m_Layer: 5
-  m_Name: Correct Button
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cd0a60d61b4409a46af9a795fac1eb2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6453341053746392102, guid: f66164bbcff99ac448cf26908ff96c06, type: 3}
+      - m_Target: {fileID: 8529659596915246968, guid: f66164bbcff99ac448cf26908ff96c06, type: 3}
         m_TargetAssemblyTypeName: OOO_Manager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: WrongAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
