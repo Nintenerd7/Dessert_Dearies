@@ -10,8 +10,11 @@ public class Match2_Manager : MonoBehaviour
     public Sprite[] icons; //gets icon list 
     private List<Sprite> Pairs; //creates list of pairs 
     int count;
+    public GameObject text;
+    bool gotPoint = false;
     Card_Manager A; 
     Card_Manager B;
+
 
     public void selectCard(Card_Manager card)
     {
@@ -41,7 +44,7 @@ public class Match2_Manager : MonoBehaviour
         {
             Destroy(a.gameObject);
             Destroy(b.gameObject);
-            
+            gotPoint = true;
         }
         else
         {
@@ -57,6 +60,18 @@ public class Match2_Manager : MonoBehaviour
         CreateCards();//Call create cards to start 
     }
 
+    void Update()
+    {
+      if (gotPoint)
+      {
+        count += 1;
+        gotPoint = false;
+      }
+      if (count == 6)
+      {
+        text.SetActive(true);
+      }
+    }
     void GenerateSprites() //generates icon sprites 
     {
         Pairs = new List<Sprite>();//creates new list
@@ -87,4 +102,5 @@ public class Match2_Manager : MonoBehaviour
             Shuffle_List [rand] = temp;//Shuffle List is equal to temp variable 
         }//end loop 
     }//end of function
+
 }

@@ -9,6 +9,7 @@ public class Player_Controller : MonoBehaviour
     public Rigidbody2D _rigidbody; //rigidbody physics that adds force to the ball
     bool canBounce = false; //controls how many times you click the trigger collision 
     public TMP_Text ScoreText; //Reference to text mesh pro element in the UI canvas
+    public GameObject[] Toggle = new GameObject[4];
     int ScoreCount; //Score count stores the value of the score parameter 
 
     void Update()//updates sequences in every frame. 
@@ -29,7 +30,7 @@ public class Player_Controller : MonoBehaviour
     else if (col.tag == "Death Zone") //else if collision tag is equal to death zone 
         {
             Destroy(gameObject); //ball is destroyed
-            //game over 
+            GameOver(); //call gameover
         }//end else if 
     }
 
@@ -48,4 +49,12 @@ public class Player_Controller : MonoBehaviour
       ScoreCount += score; //score parameter is assigned to the score count 
       ScoreText.text = ScoreCount.ToString(); // score count is converted to string within the text mesh pro text
     }//end method 
+
+    public void GameOver()
+    {
+      Toggle[0].SetActive(true);
+      Toggle[1].SetActive(false);
+      Toggle[2].SetActive(false);
+      Toggle[3].SetActive(false);
+    }
 }
