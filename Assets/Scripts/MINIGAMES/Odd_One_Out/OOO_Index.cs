@@ -5,6 +5,5 @@ using UnityEngine.UI;
 [System.Serializable]
 public class OOO_Index 
 {
-    public int ID;
     public Sprite[] ImageVariant;
 }
