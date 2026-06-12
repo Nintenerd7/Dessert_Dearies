@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pachinko_Game.unity
     guid: 3a94afae08ba6704c9ae517f933cdad8
+  - enabled: 1
+    path: Assets/Scenes/outside.unity
+    guid: d504c62e21ed23c41bf943350d09fd6f
   m_configObjects: {}
