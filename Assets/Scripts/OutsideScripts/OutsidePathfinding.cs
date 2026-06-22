@@ -57,7 +57,7 @@ public class OutsidePathfinding : MonoBehaviour
     {
         if(football==null)
         {
-            TargetPos = new Vector2(Random.Range(-2.0f, 2.0f), Random.Range(-5.0f, 0.0f));
+            TargetPos = new Vector2(Random.Range(-2.0f, 2.0f), Random.Range(-3.0f, 0.0f));
             HasTargetPos = true;
             setInvoke = false;
             WalkCycle.SetBool("HasTargetPos", true);
@@ -81,7 +81,7 @@ public class OutsidePathfinding : MonoBehaviour
     {
         if (football==null)
         {
-            football = Instantiate(FootballPrefab, new Vector3(Random.Range(-2.0f, 2.0f), Random.Range(-5.0f, 0f), 0f), transform.rotation);
+            football = Instantiate(FootballPrefab, new Vector3(Random.Range(-2.0f, 2.0f), Random.Range(-3.0f, 0f), 0f), transform.rotation);
         }
     }
 
@@ -129,5 +129,18 @@ public class OutsidePathfinding : MonoBehaviour
                 SetPet();
             }
         }
+    }
+
+    public void IncreaseHappiness()
+    {
+        if (PlayerPrefs.HasKey("PetHappiness"))
+        {
+            float savedHappiness = PlayerPrefs.GetFloat("PetHappiness");
+            float happinessIncrease = Random.Range(0.01f, 0.05f);
+            float petHappiness = savedHappiness + happinessIncrease;
+            PlayerPrefs.SetFloat("PetHappiness", petHappiness);
+            PlayerPrefs.Save();
+        }
+
     }
 }

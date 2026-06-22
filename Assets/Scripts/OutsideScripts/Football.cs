@@ -14,6 +14,7 @@ public class Football : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject ballPoofPrefab;
     private GameObject ballPoof;
+    [SerializeField] OutsidePathfinding outsidePathfinding;
 
 
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class Football : MonoBehaviour
             Vector2 direction = ((Vector2)transform.position - (Vector2)collision.transform.position);
             direction = direction.normalized;
             rb.AddForce(direction*Force);
+            outsidePathfinding.IncreaseHappiness();
             Invoke("ResetBall", 2f);
         }
     }
@@ -82,7 +84,7 @@ public class Football : MonoBehaviour
             bounce = true;
         }
 
-        if ((viewPos.y <= 0.02f && curVelocity.y < 0) || (viewPos.y >= 0.6f && curVelocity.y > 0))
+        if ((viewPos.y <= 0.02f && curVelocity.y < 0) || (viewPos.y >= 0.4f && curVelocity.y > 0))
         {
             curVelocity.y = -curVelocity.y;
             bounce = true;
