@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pet_Interaction : MonoBehaviour
 {
-    public GameObject[] Hidden_Elements = new GameObject[4];//holds list of buttons needing to be hidden
+    public GameObject Hidden_Elements;//holds list of buttons needing to be hidden
     public GameObject hand;//Headpat gameobject
     public Game Game_Manager;//getting the pet happiness value.
 
@@ -24,7 +24,7 @@ public class Pet_Interaction : MonoBehaviour
         Game_Manager.petHappiness += 0.05f;//Adds happiness (WHICH WORRKS YIPPEE!!)
         hand.SetActive(false);//headpats are not there.
         ShowButtons();//shows buttons
-        Game_Manager.Save();
+        Game_Manager.Save(); //saves game with states
         Game_Manager.PlayHappyExpression();
     }
 
@@ -32,18 +32,12 @@ public class Pet_Interaction : MonoBehaviour
     //sets buttons visibility to false
     public void HideButtons()
     {
-      Hidden_Elements[0].SetActive(false);
-      Hidden_Elements[1].SetActive(false);
-      Hidden_Elements[2].SetActive(false);
-      Hidden_Elements[3].SetActive(false);
+      Hidden_Elements.SetActive(false);
     }
     //sets buttons visibility to true
     public void ShowButtons()
     {
-        Hidden_Elements[0].SetActive(true);
-        Hidden_Elements[1].SetActive(true);
-        Hidden_Elements[2].SetActive(true);
-        Hidden_Elements[3].SetActive(true);
+        Hidden_Elements.SetActive(true);
     }
     #endregion
 }
