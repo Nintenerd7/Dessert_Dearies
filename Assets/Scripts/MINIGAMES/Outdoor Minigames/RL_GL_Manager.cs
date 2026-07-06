@@ -5,16 +5,16 @@ using UnityEngine;
 public class RL_GL_Manager : MonoBehaviour
 {
     bool CanWalk; //to heck if the player is moving during the redlight sequence
-    bool paused;
+    bool paused; //Checks if the game can be paused 
     bool TargetReached; //checks if the player has one  
     public int petType; //used to index sprite types
-    public state GameMode;
-    float speed = 0.0005f;
+    public state GameMode; //used to set game modes 
+    float speed = 0.0005f; //used to store z speed value 
 
-void Start()
-{
- paused = false;
-}
+    void Start()
+    {
+        paused = false; //paused is set to false at the start of this frame 
+    }
 
     // Update is called once per frame
    void Update()
@@ -26,11 +26,18 @@ void Start()
         {
           case state.redlight:
           RedLight(); //calls greenlight in the green light state
-          break;
+          break; //break line
 
          case state.greenlight:
           GreenLight(); //calls greenlight in the green light state
           break;
+        }//end switch
+
+        if (TargetReached)
+        {
+          Debug.Log("WIN");
+          StopAllCoroutines();
+          paused = true;
         }
     }
 void FixedUpdate() //for pausing the game when the player wins or loses 
@@ -46,7 +53,7 @@ void FixedUpdate() //for pausing the game when the player wins or loses
         TargetReached = false;
         if (Input.GetMouseButton(0) && !CanWalk && !TargetReached && !paused) //if the player taps on the screen or presses the mouse, and can walk is set to false and target reached is set to false 
         {
-            CanWalk = true;
+            CanWalk = true; //can walk is set to true 
             transform.position += new Vector3(0f, 0f, speed); //transform position moves along with the Z axis 
         }
     }
@@ -67,7 +74,7 @@ void FixedUpdate() //for pausing the game when the player wins or loses
        switch(CanWalk)
        {
         case true:
-        if (!paused)StartCoroutine(TimeBeforeLoosing());
+        if (!paused)StartCoroutine(TimeBeforeLoosing()); 
         break;
         case false:
         StartCoroutine(SwitchToGreenLight());
@@ -82,7 +89,7 @@ void FixedUpdate() //for pausing the game when the player wins or loses
         StartCoroutine(SwitchToRedLight());
     }
 
-public IEnumerator TimeBeforeLoosing()
+public IEnumerator TimeBeforeLoosing() 
 { 
    yield return new WaitForSeconds(0.5f);
    paused = true;
