@@ -9,6 +9,7 @@ public class RL_GL_Manager : MonoBehaviour
     bool TargetReached; //checks if the player has one  
     public int petType; //used to index sprite types
     public state GameMode; //used to set game modes 
+    public GameObject[] lights = new GameObject[2];
     float speed = 0.0005f; //used to store z speed value 
 
     void Start()
@@ -42,7 +43,7 @@ public class RL_GL_Manager : MonoBehaviour
     }
 void FixedUpdate() //for pausing the game when the player wins or loses 
 {
-        if (paused)
+        if (paused) 
         {
           Time.timeScale = 0f;
         }
@@ -69,6 +70,8 @@ void FixedUpdate() //for pausing the game when the player wins or loses
 
     void RedLight()
     {
+       lights[0].SetActive(true);
+       lights[1].SetActive(false);
        Debug.Log("red light");
        StopCoroutine(SwitchToRedLight());
        switch(CanWalk)
@@ -85,6 +88,8 @@ void FixedUpdate() //for pausing the game when the player wins or loses
     void GreenLight()
     {
         Debug.Log("green light");
+       lights[1].SetActive(true);
+       lights[0].SetActive(false);
         StopCoroutine(SwitchToGreenLight());
         StartCoroutine(SwitchToRedLight());
     }
