@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 476284595}
   - component: {fileID: 476284597}
   - component: {fileID: 476284596}
+  - component: {fileID: 476284598}
   m_Layer: 5
   m_Name: Red light
   m_TagString: Untagged
@@ -199,6 +200,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476284594}
   m_CullTransparentMesh: 1
+--- !u!95 &476284598
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476284594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12d7f5ed64ad2a94cab14483955851ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &524380346
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petType: 0
   GameMode: 0
+  anim:
+  - {fileID: 476284598}
+  - {fileID: 1774836968}
   lights:
   - {fileID: 476284594}
   - {fileID: 1774836964}
@@ -846,6 +871,7 @@ GameObject:
   - component: {fileID: 1774836965}
   - component: {fileID: 1774836967}
   - component: {fileID: 1774836966}
+  - component: {fileID: 1774836968}
   m_Layer: 5
   m_Name: green light
   m_TagString: Untagged
@@ -911,6 +937,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774836964}
   m_CullTransparentMesh: 1
+--- !u!95 &1774836968
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774836964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fb34c690029f1641812e7584e5773ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1786626091
 PrefabInstance:
   m_ObjectHideFlags: 0

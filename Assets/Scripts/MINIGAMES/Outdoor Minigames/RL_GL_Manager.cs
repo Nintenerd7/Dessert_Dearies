@@ -9,7 +9,8 @@ public class RL_GL_Manager : MonoBehaviour
     bool TargetReached; //checks if the player has one  
     public int petType; //used to index sprite types
     public state GameMode; //used to set game modes 
-    public GameObject[] lights = new GameObject[2];
+    public Animator[] anim = new Animator[2];
+    public GameObject[] lights = new GameObject[2]; //For switching in between lights 
     float speed = 0.0005f; //used to store z speed value 
 
     void Start()
@@ -103,14 +104,20 @@ public IEnumerator TimeBeforeLoosing()
 
 public IEnumerator SwitchToGreenLight()
 {
-  yield return new WaitForSeconds(5f);
+  yield return new WaitForSeconds(4.5f);
+  anim[0].SetBool("isChanging", true);
+  yield return new WaitForSeconds(0.5f);
+  anim[1].SetBool("isChanging", false);
   GameMode = state.greenlight;
   yield break;
 }
 
 public IEnumerator SwitchToRedLight()
 {
-  yield return new WaitForSeconds(5f);
+  yield return new WaitForSeconds(4.5f);
+  anim[1].SetBool("isChanging", true);
+  yield return new WaitForSeconds(0.5f);
+  anim[0].SetBool("isChanging", false);
   GameMode = state.redlight;
   yield break;
 }
