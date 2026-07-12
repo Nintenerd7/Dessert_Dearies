@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class RL_GL_Manager : MonoBehaviour
 {
     bool CanWalk; //to heck if the player is moving during the redlight sequence
     bool paused; //Checks if the game can be paused 
     bool TargetReached; //checks if the player has one  
-    public int petType; //used to index sprite types
     public state GameMode; //used to set game modes 
     public Animator[] anim = new Animator[2];
     public GameObject[] lights = new GameObject[2]; //For switching in between lights 
+    public Pet_Data petObject; //holds object orientation with pet data 
     float speed = 0.0005f; //used to store z speed value 
 
     void Start()
     {
+        petObject.LoadPet();
         paused = false; //paused is set to false at the start of this frame 
     }
 
@@ -114,7 +115,7 @@ public IEnumerator SwitchToGreenLight()
 
 public IEnumerator SwitchToRedLight()
 {
-  yield return new WaitForSeconds(4.5f);
+  yield return new WaitForSeconds(4.5f); 
   anim[1].SetBool("isChanging", true);
   yield return new WaitForSeconds(0.5f);
   anim[0].SetBool("isChanging", false);

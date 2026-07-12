@@ -719,6 +719,8 @@ MonoBehaviour:
     SoundClip: {fileID: 8300000, guid: cdb2608bfd24ac241a27259f494d79b4, type: 3}
   - Sound_Name: Coin
     SoundClip: {fileID: 8300000, guid: 3b3595250246879479c8975b5d5dc3f4, type: 3}
+  - Sound_Name: Jump
+    SoundClip: {fileID: 8300000, guid: 6836339a11087bd4eb6a255b7e352022, type: 3}
   SFX_Src: {fileID: 1991883944}
 --- !u!4 &1430449044
 Transform:

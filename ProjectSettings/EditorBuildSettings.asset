@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/outside.unity
     guid: d504c62e21ed23c41bf943350d09fd6f
+  - enabled: 1
+    path: Assets/Scenes/Outdoor Games/RedLight_GreenLight.unity
+    guid: 0d130c7480df6284caaee1bcc9ea5e69
   m_configObjects: {}
